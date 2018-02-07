@@ -10,8 +10,9 @@ class App extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     const value = (event.target.elements.todoitem.value)
+    this.state.todoList.push(value)
     this.setState(({todoList}) => ({
-      todoList: [value], 
+      todoList: todoList
     }))
   }
 
