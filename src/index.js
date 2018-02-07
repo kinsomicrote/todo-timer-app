@@ -16,6 +16,11 @@ class App extends React.Component {
     }))
   }
 
+  //TODO: Clear form input box after submission
+  clearFormInput = () => {
+    
+  }
+
 
 
 render() {
