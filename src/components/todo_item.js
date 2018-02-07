@@ -3,8 +3,8 @@ import React from 'react';
 class TodoItem extends React.Component{
   state = {currentTime: 0, status: false }
   handleStartTodo = () => {
-    this.setState(state => {
-      if (state.status) {
+    this.setState(({status}) => {
+      if (status) {
         clearInterval(this.timer)
       } else {
         const startTime = Date.now() - this.state.currentTime
@@ -12,7 +12,7 @@ class TodoItem extends React.Component{
           this.setState({ currentTime: Date.now() - startTime })
         })
       }
-      return { status: !state.status }
+      return { status: !status }
     })
   }
 
