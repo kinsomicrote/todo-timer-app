@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
 render() {
-  //const { todoList } = this.props
+  const { todoList } = this.state
 
     return (
       <div>
@@ -47,7 +47,7 @@ render() {
         </div>
         <TodoItem
           action={this.handleDoneTodo}
-          item={this.state.todoList}
+          item={todoList}
         />
       </div>
     )
