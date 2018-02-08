@@ -1,7 +1,7 @@
 import React from 'react';
 
 class TodoItem extends React.Component{
-  state = {currentTime: 0, status: false }
+  state = {currentTime: 0, status: false, btnOne: false, btnTwo: false }
   handleStartTodo = () => {
     this.setState(({status}) => {
       if (status) {
@@ -16,12 +16,15 @@ class TodoItem extends React.Component{
     })
   }
 
-  handleDoneTodo = () => {
-
+  doneTodo = () => {
+    this.setState({
+      btnOne: true,
+      btnTwo: true
+    })
   }
 
   render() {
-    const { currentTime, status } = this.state
+    const { currentTime, status, btnOne, btnTwo } = this.state
     const { item } = this.props
     return (
       <div className="todo-list">
@@ -32,10 +35,16 @@ class TodoItem extends React.Component{
               {i}
               <button 
                 onClick={this.handleStartTodo}
+                disabled={btnOne}
               >
                 { status ? 'Pause' : 'Start' }
               </button>
-              <button>Done</button>
+              <button
+                onClick={this.doneTodo}
+                disabled={btnTwo}
+              >
+                Done
+              </button>
               <div>
                 { currentTime }
               </div>

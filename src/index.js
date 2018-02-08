@@ -6,6 +6,7 @@ class App extends React.Component {
     super(props)
 
     this.state = { todoList: [] }
+    this.handleDoneTodo = this.handleDoneTodo.bind(this)
   }
   handleSubmit = (event) => {
     event.preventDefault()
@@ -21,7 +22,9 @@ class App extends React.Component {
     
   }
 
-
+  handleDoneTodo = () => {
+    console.log('...handle todo')
+  }
 
 render() {
   //const { todoList } = this.props
@@ -42,7 +45,10 @@ render() {
             </form>
           </div>
         </div>
-        <TodoItem item={this.state.todoList}/>
+        <TodoItem
+          action={this.handleDoneTodo}
+          item={this.state.todoList}
+        />
       </div>
     )
   }
